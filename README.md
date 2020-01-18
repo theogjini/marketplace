@@ -1,5 +1,3 @@
-To start the server, run `nodemon server.js`
+Decode react marketplace project
 
-Modify the `server.js` file to add endpoints
-
-The frontend code goes in the `/src` directory
+Music store, users can buy sell, trade guitars.
