@@ -9,6 +9,12 @@ let upload = multer({ dest: __dirname + '/uploads/' })
 
 let dbo = undefined
 
+let url = "mongodb+srv://theo:theo@cluster0-xnzrm.mongodb.net/test?retryWrites=true&w=majority"
+MongoClient.connect(url, { newUrlParser: true }, (err, client) => {
+    dbo = client.db("marketplace")
+})
+
+console.log(dbo)
 
 reloadMagic(app)
 
