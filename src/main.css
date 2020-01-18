@@ -1,0 +1,57 @@
+body {
+    background-color: #bbb;
+    margin: 0;
+    font-family: 'Cuprum', sans-serif;
+}
+
+.overlay {
+    z-index:50;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color:rgba(0,0,0,0.5);
+}
+
+.popup {
+    z-index:100;
+    position: fixed;
+    top:200px;
+    left:200px;
+    right:200px;
+    background-color:white
+}
+
+.content {
+    position: relative;
+    top: 75px;
+}
+
+.button {
+    background-color: #2D3436;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    cursor: pointer;
+    font-family: 'Cuprum', sans-serif;
+
+}
+
+.navbar {
+    display: flex;
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 100%;
+    background-color: #2D3436;
+    color: white;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+}
