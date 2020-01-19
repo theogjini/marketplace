@@ -1,7 +1,13 @@
 body {
-    background-color: #bbb;
+    background-color: #DFE3E8;
     margin: 0;
     font-family: 'Cuprum', sans-serif;
+    color: #2D3436
+}
+
+.margin {
+    margin: 10px;
+    padding:20px;
 }
 
 .overlay {
@@ -23,9 +29,37 @@ body {
     background-color:white
 }
 
+.center {
+    text-align:center;
+}
+
 .content {
+    display: flex;
+    justify-content: center;
     position: relative;
     top: 75px;
+}
+
+form {
+    border-bottom: 1px solid #2D3436;
+    padding: 20px;
+    margin: 10px;
+}
+
+input {
+    font-family: 'Cuprum', sans-serif;
+    font-size: 16px;;
+    margin: 10px;
+    padding: 5px;
+    height: 25px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #2D3436;
+    transition: 0.25s ease-in-out;
+}
+
+input:hover {
+    box-shadow: 0px 3px 15px -5px rgba(0,0,0,0.75);
 }
 
 .button {
@@ -36,7 +70,9 @@ body {
     padding: 5px;
     cursor: pointer;
     font-family: 'Cuprum', sans-serif;
-
+    text-decoration: none;
+    width: auto;
+    font-size: 16px;
 }
 
 .navbar {
@@ -49,7 +85,7 @@ body {
     color: white;
     height: 60px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 h1 {

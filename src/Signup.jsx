@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Signup extends Component {
     constructor() {
         super()
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            email: ""
         }
     }
     componentDidMount() {
@@ -17,9 +19,14 @@ class Signup extends Component {
     pwdChangeHandler = event => {
         this.setState({ password: event.target.value })
     }
+    emailChangeHandler = event => {
+        this.setState({ email: event.target.value })
+    }
     submitHandler = async (event) => {
         event.preventDefault()
-        console.log('submitted')
+        if (this.state.username === "" || this.state.password === "") {
+            return alert("Please fill every fields")
+        }
         let data = new FormData()
         data.append("username", this.state.username)
         data.append("password", this.state.password)
@@ -27,19 +34,28 @@ class Signup extends Component {
         let responseBody = await response.text()
         let parsed = await JSON.parse(responseBody)
         console.log(parsed)
+        alert(parsed.desc)
         this.setState({
             username: "",
             password: ""
         })
     }
     render = () => {
-        return (<div>
-            <h2>Sign up</h2>
-            <form onSubmit={this.submitHandler}>
-                <input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." />
-                <input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." />
-                <input className="button" type="submit" value="Sign up!" />
-            </form>
+        return (<div className='content'>
+            <div className='center'>
+                <h1>Sign up</h1>
+                <form onSubmit={this.submitHandler}>
+                    <div>
+                        <div className="input"><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
+                        <div><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                        <div><input type="text" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
+                    </div>
+                    <button className="button">Sign up!</button>
+                </form>
+                <div>
+                    Already signed up? <Link className="margin button" to="/login">Log in!</Link>
+                </div>
+            </div>
         </div>)
     }
 }

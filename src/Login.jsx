@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             username: "",
             password: ""
@@ -19,7 +21,9 @@ class Login extends Component {
     }
     submitHandler = async (event) => {
         event.preventDefault()
-        console.log('submitted')
+        if (this.state.username === "" || this.state.password === "") {
+            return alert("Please fill every fields")
+        }
         let data = new FormData()
         data.append("username", this.state.username)
         data.append("password", this.state.password)
@@ -27,21 +31,35 @@ class Login extends Component {
         let responseBody = await response.text()
         let parsed = await JSON.parse(responseBody)
         console.log(parsed)
+        if (!parsed.success) { alert(parsed.desc) }
+        if (parsed.success) {
+            this.props.dispatch({
+                type: "LOGIN_SUCCESS",
+                username: parsed.username
+            })
+        }
         this.setState({
             username: "",
             password: ""
         })
     }
     render = () => {
-        return (<div>
-            <h2>Login</h2>
-            <form onSubmit={this.submitHandler}>
-                <input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." />
-                <input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." />
-                <input className="button" type="submit" value="Login!" />
-            </form>
+        return (<div className="content">
+            <div className='center'>
+                <h1>Login</h1>
+                <form onSubmit={this.submitHandler}>
+                    <div >
+                        <div><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
+                        <div><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                    </div>
+                    <button className="button">Login!</button>
+                </form>
+                <div>
+                    First time coming? <Link className="margin button" to='/signup'>Sign up!</Link>
+                </div>
+            </div>
         </div>)
     }
 }
 
-export default Login
+export default connect()(Login)
