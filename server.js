@@ -1,12 +1,14 @@
-let express = require('express')
-let app = express()
-let reloadMagic = require('./reload-magic.js')
-let MongoDB = require('mongodb')
-let MongoClient = MongoDB.MongoClient;
-let ObjectID = MongoDB.ObjectID
-let multer = require('multer')
-let upload = multer({ dest: __dirname + '/uploads/' })
-let sha1 = require('sha1')
+const express = require('express')
+const app = express()
+const reloadMagic = require('./reload-magic.js')
+const MongoDB = require('mongodb')
+const MongoClient = MongoDB.MongoClient;
+const ObjectID = MongoDB.ObjectID
+const multer = require('multer')
+const upload = multer({ dest: __dirname + '/uploads/' })
+const sha1 = require('sha1')
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
 
 let dbo = undefined
 
@@ -26,6 +28,7 @@ app.post('/signup', upload.none(), (req, res) => {
     console.log('Singin-up requested', req.body)
     let username = req.body.username
     let password = req.body.password
+    let email = req.body.email
     dbo.collection("users").findOne({ username }, (err, user) => {
         if (err) {
             console.log("singup error!")
@@ -33,7 +36,7 @@ app.post('/signup', upload.none(), (req, res) => {
         }
         if (user === null) {
             console.log('signup processing')
-            dbo.collection('users').insertOne({ username, password: sha1(password) })
+            dbo.collection('users').insertOne({ username, password: sha1(password), email })
             return res.send(JSON.stringify({ success: true, desc: "Signup successful!!" }))
         }
         if (user) {
@@ -63,9 +66,40 @@ app.post('/login', upload.none(), (req, res) => {
         }
         if (user.password === sha1(password)) {
             console.log('login success')
+            let sessionId = '' + Math.floor(Math.random() * 100000000)
+            dbo.collection("sessions").insertOne({ sessionId, username })
+            res.cookie('sid', sessionId)
             return res.send(JSON.stringify({ success: true, desc: 'Login successful!', username }))
         }
         res.send(JSON.stringify({ success: false, desc: "Error" }))
+    })
+})
+
+app.post('/logout', (req, res) => {
+    console.log('logout requested')
+    let sessionId = req.cookies.sid
+    console.log('sessionID', sessionId)
+    dbo.collection("sessions").deleteOne({ sessionId: sessionId })
+    res.send(JSON.stringify({ success: true, desc: 'logout successful' }))
+})
+
+app.get('/session', (req, res) => {
+    let sessionId = req.cookies.sid
+    console.log('sessionID', sessionId)
+    dbo.collection('sessions').findOne({ sessionId: sessionId }, (err, user) => {
+        if (err) {
+            console.log('error', err)
+            return res.send(JSON.stringify({ success: false }))
+        }
+        if (user === null) {
+            console.log('null', user)
+            return res.send(JSON.stringify({ success: false }))
+        }
+        if (user) {
+            console.log('success', user)
+            return res.send(JSON.stringify({ success: true, username: user.username }))
+        }
+        res.send(JSON.stringify({ success: false }))
     })
 })
 

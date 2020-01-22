@@ -8,9 +8,13 @@ class Navbar extends Component {
     }
     render = () => {
         return (<div className="navbar">
-            <Link to="/" className="button"><h1>My Music Shop</h1></Link>
-            {!this.props.logged.status && (<Link className="button" to="/login">Log in</Link>)}
-            {this.props.logged.status && (<div>Logged in as: {this.props.logged.username}</div>)}
+            <div className="nav-left">
+                <img className="logo" src="uploads/logo/guitar.png" height="30px" /><Link to="/" className="button"><h2>Only Guitars</h2></Link></div>
+            {!this.props.logged.status && (<div>
+                <Link className="button" to="/login">Log in</Link>
+                <Link className="button" id="signup-button" to="/signup">Sign up</Link>
+            </div>)}
+            {this.props.logged.status && (<div>Logged as :<Link to="/profile" id="signup-button" className="button">{this.props.logged.username}</Link></div>)}
         </div >)
     }
 }

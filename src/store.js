@@ -10,6 +10,14 @@ const reducer = (state, action) => {
             }
         }
     }
+    if (action.type === 'LOGOUT') {
+        return {
+            ...state,
+            logged: {
+                status: false
+            }
+        }
+    }
     return state
 }
 
