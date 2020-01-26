@@ -45,12 +45,12 @@ class Signup extends Component {
     render = () => {
         return (
             <div className='center'>
-                <h2>Sign up</h2>
+                <h1>Sign up</h1>
                 <form onSubmit={this.submitHandler}>
                     <div>
-                        <div className="input"><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
-                        <div><input type="text" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
-                        <div><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                        <div className='input-container'><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
+                        <div className='input-container'><input type="text" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
+                        <div className='input-container'><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
                     </div>
                     <button className="button">Sign up!</button>
                 </form>

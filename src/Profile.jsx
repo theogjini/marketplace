@@ -16,14 +16,16 @@ class Profile extends Component {
         let parsed = JSON.parse(body)
         if (parsed.success) {
             this.props.dispatch({ type: "LOGOUT" })
+            this.props.history.push('/')
         }
-        this.props.history.push('/')
     }
     render = () => {
         return (<div className="center">
             <h1>Profile here...</h1>
             <Link to="/add-item" className="button">Sell a guitar</Link>
-            <span className="button" onClick={this.handleLogout}>Logout</span>
+            <Link to="/shop" className="button">Go to shop</Link>
+            <div className="button" onClick={this.handleLogout}>Logout</div>
+
         </div>)
     }
 }

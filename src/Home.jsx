@@ -6,7 +6,7 @@ class Home extends Component {
     render = () => {
         return (<div>
             <h1>Home</h1>
-            <div ><Link className="button" to="/shop">Go shopping</Link></div>
+            <div><Link className="button" to="/shop">Go shopping</Link></div>
         </div>)
     }
 }

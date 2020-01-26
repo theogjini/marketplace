@@ -1,0 +1,568 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200126.161837.6378.0.001.json",
+    "dumpEventTime": "2020-01-26T16:18:37Z",
+    "dumpEventTimeStamp": "1580073517671",
+    "processId": 6378,
+    "cwd": "/home/theo/decode/my-workshops/marketplace",
+    "commandLine": [
+      "node",
+      "/usr/bin/npx",
+      "webpack",
+      "--watch",
+      "--display",
+      "errors-only"
+    ],
+    "nodejsVersion": "v13.6.0",
+    "glibcVersionRuntime": "2.30",
+    "glibcVersionCompiler": "2.30",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "13.6.0",
+      "v8": "7.9.317.25-node.26",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "79",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "openssl": "1.1.1d",
+      "cldr": "36.0",
+      "icu": "65.1",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v13.6.0/node-v13.6.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v13.6.0/node-v13.6.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "4.19.97-1-MANJARO",
+    "osVersion": "#1 SMP Sat Jan 18 00:17:24 UTC 2020",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
+        "speed": 2797,
+        "user": 18576500,
+        "nice": 50400,
+        "sys": 3190200,
+        "idle": 92606800,
+        "irq": 413600
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
+        "speed": 2747,
+        "user": 18019800,
+        "nice": 48600,
+        "sys": 3048700,
+        "idle": 25345000,
+        "irq": 183500
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
+        "speed": 2693,
+        "user": 18591800,
+        "nice": 58100,
+        "sys": 3114300,
+        "idle": 25013100,
+        "irq": 174400
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
+        "speed": 2693,
+        "user": 18196000,
+        "nice": 52700,
+        "sys": 2975000,
+        "idle": 25331100,
+        "irq": 451300
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "wlp2s0",
+        "internal": false,
+        "mac": "0c:8b:fd:37:bf:72",
+        "address": "192.168.2.13",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "wlp2s0",
+        "internal": false,
+        "mac": "0c:8b:fd:37:bf:72",
+        "address": "fe80::d265:89dc:73c4:4f7c",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 3
+      }
+    ],
+    "host": "theo-pc"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x000055c896054b0a",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, v8::Local<v8::String>) [node]"
+    },
+    {
+      "pc": "0x000055c895f157a8",
+      "symbol": "node::OnFatalError(char const*, char const*) [node]"
+    },
+    {
+      "pc": "0x000055c896088f52",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x000055c8960891b8",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x000055c896213466",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x000055c8962135a9",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x000055c896225d8d",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x000055c896226ab8",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x000055c896228fec",
+      "symbol": "v8::internal::Heap::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x000055c896229054",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x000055c8961ee4fb",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType, v8::internal::AllocationOrigin) [node]"
+    },
+    {
+      "pc": "0x000055c89651f0d0",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [node]"
+    },
+    {
+      "pc": "0x000055c896878779",
+      "symbol": " [node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2160189440,
+    "totalCommittedMemory": 2153861224,
+    "usedMemory": 2129866040,
+    "availableMemory": 50613800,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 33328,
+        "capacity": 33040,
+        "used": 33040,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 8388608,
+        "committedMemory": 2577064,
+        "capacity": 4189696,
+        "used": 635704,
+        "available": 3553992
+      },
+      "old_space": {
+        "memorySize": 2033590272,
+        "committedMemory": 2033395360,
+        "capacity": 2018313336,
+        "used": 2013069080,
+        "available": 5244256
+      },
+      "code_space": {
+        "memorySize": 1478656,
+        "committedMemory": 1385888,
+        "capacity": 1273600,
+        "used": 1273600,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2101248,
+        "committedMemory": 2101072,
+        "capacity": 1788000,
+        "used": 1788000,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 113745920,
+        "committedMemory": 113745920,
+        "capacity": 112522072,
+        "used": 112522072,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 544544,
+        "used": 544544,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 4189696,
+        "used": 0,
+        "available": 4189696
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 443.849,
+    "kernelCpuSeconds": 111.351,
+    "cpuConsumptionPercent": 6.90805,
+    "maxRss": 3613970432,
+    "pageFaults": {
+      "IORequired": 9,
+      "IONotRequired": 4412218
+    },
+    "fsActivity": {
+      "reads": 146680,
+      "writes": 1734400
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 221.492,
+    "kernelCpuSeconds": 27.2568,
+    "cpuConsumptionPercent": 3.09505,
+    "fsActivity": {
+      "reads": 1792,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "SHELL": "/bin/bash",
+    "npm_config_timing": "",
+    "npm_config_access": "",
+    "npm_config_save_dev": "",
+    "WINDOWID": "27262978",
+    "npm_config_sign_git_tag": "",
+    "npm_config_before": "",
+    "npm_config_userconfig": "/home/theo/.npmrc",
+    "npm_config_global": "",
+    "npm_config_unsafe_perm": "true",
+    "COLORTERM": "truecolor",
+    "npm_config_fetch_retry_mintimeout": "10000",
+    "npm_config_cache": "/home/theo/.npm",
+    "npm_config_loglevel": "notice",
+    "npm_config_init_author_name": "",
+    "npm_package_main": "index.js",
+    "npm_config_send_metrics": "",
+    "npm_package_dependencies_webpack_inject_plugin": "^1.5.0",
+    "XDG_SESSION_PATH": "/org/freedesktop/DisplayManager/Session0",
+    "npm_config_optional": "true",
+    "npm_config_user": "",
+    "npm_package_dependencies_cookie_parser": "1.4.4",
+    "npm_config_git_tag_version": "true",
+    "npm_package_dependencies_mongodb": "^3.5.0",
+    "TMUX": "/tmp//tmux-1000/default,2818,0",
+    "npm_config_rebuild_bundle": "true",
+    "npm_config_always_auth": "",
+    "npm_config_cache_max": "Infinity",
+    "I3SOCK": "/run/user/1000/i3/ipc-socket.725",
+    "NODE": "/usr/bin/node",
+    "npm_config_searchstaleness": "900",
+    "npm_config_ignore_scripts": "",
+    "npm_config_save_optional": "",
+    "LC_ADDRESS": "en_US.UTF-8",
+    "npm_package_devDependencies_style_loader": "^0.23.1",
+    "LC_NAME": "en_US.UTF-8",
+    "npm_config_dev": "",
+    "MFX_HOME": "/opt/intel/mediasdk",
+    "npm_config_browser": "",
+    "npm_config_maxsockets": "50",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"start\"],\"original\":[\"start\"]}",
+    "npm_config_ham_it_up": "",
+    "npm_config_bin_links": "true",
+    "DESKTOP_SESSION": "i3",
+    "__GIT_PROMPT_SHOW_UNTRACKED_FILES": "all",
+    "LC_MONETARY": "en_US.UTF-8",
+    "npm_config_allow_same_version": "",
+    "npm_config_globalconfig": "/usr/etc/npmrc",
+    "npm_config_cache_min": "10",
+    "EDITOR": "/usr/bin/nano",
+    "npm_config_tag_version_prefix": "v",
+    "npm_config_shell": "/bin/bash",
+    "npm_config_preid": "",
+    "npm_config_usage": "",
+    "GTK_MODULES": "canberra-gtk-module",
+    "XDG_SEAT": "seat0",
+    "PWD": "/home/theo/decode/my-workshops/marketplace",
+    "npm_config_save_prefix": "^",
+    "npm_config_only": "",
+    "LOGNAME": "theo",
+    "XDG_SESSION_DESKTOP": "i3",
+    "QT_QPA_PLATFORMTHEME": "qt5ct",
+    "XDG_SESSION_TYPE": "x11",
+    "npm_config_sign_git_commit": "",
+    "npm_package_readmeFilename": "README.md",
+    "npm_config_commit_hooks": "true",
+    "npm_config_init_module": "/home/theo/.npm-init.js",
+    "npm_config_otp": "",
+    "npm_config_editor": "/usr/bin/nano",
+    "npm_package_devDependencies__babel_core": "^7.2.2",
+    "npm_config_tmp": "/tmp",
+    "npm_package_scripts_build": "webpack --mode production",
+    "npm_config_audit_level": "low",
+    "_": "/usr/bin/nodemon",
+    "npm_config_color": "true",
+    "XAUTHORITY": "/home/theo/.Xauthority",
+    "npm_config_package_lock_only": "",
+    "XDG_GREETER_DATA_DIR": "/var/lib/lightdm-data/theo",
+    "npm_config_save_prod": "",
+    "npm_package_devDependencies_babel_loader": "^8.0.5",
+    "npm_package_devDependencies_css_loader": "^2.1.0",
+    "npm_config_format_package_lock": "true",
+    "__GIT_PROMPT_IGNORE_SUBMODULES": "",
+    "GTK2_RC_FILES": "/home/theo/.gtkrc-2.0",
+    "npm_config_also": "",
+    "npm_config_cidr": "",
+    "npm_package_dependencies_react_redux": "6.0.1",
+    "HOME": "/home/theo",
+    "npm_config_node_version": "13.6.0",
+    "npm_package_dependencies_shelljs": "^0.8.3",
+    "LANG": "en_US.UTF-8",
+    "LC_PAPER": "en_US.UTF-8",
+    "npm_config_init_author_url": "",
+    "npm_package_devDependencies_webpack": "^4.29.0",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.pdf=00;32:*.ps=00;32:*.txt=00;32:*.patch=00;32:*.diff=00;32:*.log=00;32:*.tex=00;32:*.doc=00;32:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:",
+    "XDG_CURRENT_DESKTOP": "i3",
+    "npm_config_globalignorefile": "/usr/etc/npmignore",
+    "npm_package_dependencies_sha1": "^1.1.1",
+    "npm_config_init_license": "ISC",
+    "npm_package_dependencies_uuid": "^3.4.0",
+    "npm_package_version": "1.0.0",
+    "npm_config_cache_lock_stale": "60000",
+    "__GIT_PROMPT_IGNORE_STASH": "",
+    "npm_config_versions": "",
+    "npm_config_proxy": "",
+    "npm_config_fetch_retry_maxtimeout": "60000",
+    "npm_config_fetch_retries": "2",
+    "npm_config_git": "git",
+    "npm_package_devDependencies_html_webpack_plugin": "^3.2.0",
+    "npm_config_read_only": "",
+    "npm_config_group": "1001",
+    "npm_package_devDependencies_html_loader": "^0.5.5",
+    "npm_package_dependencies_express": "^4.16.4",
+    "XDG_SEAT_PATH": "/org/freedesktop/DisplayManager/Seat0",
+    "npm_config_unicode": "true",
+    "npm_config_sso_type": "oauth",
+    "npm_config_cache_lock_retries": "10",
+    "npm_config_local_address": "",
+    "YAOURT_COLORS": "nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35",
+    "npm_config_description": "true",
+    "INIT_CWD": "/home/theo/decode/my-workshops/marketplace",
+    "npm_config_dry_run": "",
+    "npm_config_viewer": "man",
+    "npm_config_offline": "",
+    "npm_config_message": "%s",
+    "npm_config_production": "",
+    "npm_package_devDependencies__babel_preset_react": "^7.0.0",
+    "npm_config_prefer_online": "",
+    "npm_config_link": "",
+    "npm_lifecycle_script": "nodemon server.js",
+    "npm_package_description": "Decode react marketplace project",
+    "npm_config_shrinkwrap": "true",
+    "npm_config_force": "",
+    "npm_config_rollback": "true",
+    "XDG_SESSION_CLASS": "user",
+    "npm_config_save_bundle": "",
+    "npm_config_onload_script": "",
+    "LC_IDENTIFICATION": "en_US.UTF-8",
+    "TERM": "screen-256color",
+    "npm_package_name": "webpack-react-tutorial",
+    "npm_config_prefix": "/usr",
+    "npm_config_cert": "",
+    "npm_package_dependencies_chokidar": "^3.0.0",
+    "USER": "theo",
+    "TMUX_PANE": "%0",
+    "npm_package_devDependencies_webpack_cli": "^3.2.1",
+    "npm_config_heading": "npm",
+    "npm_package_devDependencies_webpack_dev_server": "^3.1.14",
+    "npm_package_dependencies_multer": "1.4.2",
+    "npm_config_cache_lock_wait": "10000",
+    "npm_config_node_options": "",
+    "npm_package_dependencies_redux": "^4.0.4",
+    "npm_config_key": "",
+    "npm_config_json": "",
+    "npm_config_depth": "Infinity",
+    "DISPLAY": ":0",
+    "npm_lifecycle_event": "start",
+    "SHLVL": "1",
+    "npm_package_dependencies_react_router_dom": "5.1.2",
+    "LC_TELEPHONE": "en_US.UTF-8",
+    "npm_config_ca": "",
+    "npm_package_devDependencies_react_dom": "16.6.0",
+    "npm_config_prefer_offline": "",
+    "npm_package_devDependencies_react": "16.6.0",
+    "npm_config_fund": "true",
+    "LC_MEASUREMENT": "en_US.UTF-8",
+    "XDG_VTNR": "7",
+    "npm_config_if_present": "",
+    "XDG_SESSION_ID": "1",
+    "npm_config_user_agent": "npm/6.13.6 node/v13.6.0 linux x64",
+    "npm_config_save_exact": "",
+    "npm_package_dependencies__babel_plugin_proposal_class_properties": "^7.3.4",
+    "npm_execpath": "/usr/lib/node_modules/npm/bin/npm-cli.js",
+    "npm_config_progress": "true",
+    "npm_config_global_style": "",
+    "npm_config_init_author_email": "",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "npm_config_script_shell": "",
+    "npm_config_long": "",
+    "npm_config_save": "true",
+    "npm_config_strict_ssl": "true",
+    "__GIT_PROMPT_SHOW_UPSTREAM": "",
+    "npm_config_auth_type": "legacy",
+    "npm_config_version": "",
+    "npm_config_logs_max": "10",
+    "LC_TIME": "en_US.UTF-8",
+    "__GIT_PROMPT_SHOW_CHANGED_FILES_COUNT": "1",
+    "npm_config_umask": "0022",
+    "npm_config_sso_poll_frequency": "500",
+    "npm_config_searchopts": "",
+    "npm_config_legacy_bundling": "",
+    "WINIT_HIDPI_FACTOR": "1",
+    "npm_package_dependencies_ws": "^7.0.0",
+    "npm_config_searchlimit": "20",
+    "npm_package_scripts_start": "nodemon server.js",
+    "npm_config_noproxy": "",
+    "BROWSER": "/usr/bin/palemoon",
+    "PATH": "/home/theo/decode/my-workshops/marketplace/node_modules/.bin:/usr/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/theo/decode/my-workshops/marketplace/node_modules/.bin:/home/theo/.local/bin:/home/theo/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/opt/intel/mediasdk/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/theo/.bin:/opt/intel/mediasdk/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/theo/.bin",
+    "npm_config_metrics_registry": "https://registry.npmjs.org/",
+    "npm_config_node_gyp": "/usr/lib/node_modules/node-gyp/bin/node-gyp.js",
+    "npm_config_searchexclude": "",
+    "ALACRITTY_LOG": "/tmp/Alacritty-2802.log",
+    "GDMSESSION": "i3",
+    "npm_package_author_name": "Jacques Le Normand",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "npm_package_license": "ISC",
+    "npm_package_gitHead": "1417fa873bd8951ce00fde1458d5b226747e510c",
+    "npm_config_update_notifier": "true",
+    "MAIL": "/var/spool/mail/theo",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "npm_config_ignore_prepublish": "",
+    "npm_config_audit": "true",
+    "GIT_BRANCH": "master",
+    "npm_config_tag": "latest",
+    "npm_config_scripts_prepend_node_path": "warn-only",
+    "npm_config_cafile": "",
+    "npm_config_fetch_retry_factor": "10",
+    "npm_node_execpath": "/usr/bin/node",
+    "npm_config_engine_strict": "",
+    "npm_config_https_proxy": "",
+    "LC_NUMERIC": "en_US.UTF-8",
+    "OLDPWD": "/home/theo",
+    "npm_config_scope": "",
+    "npm_config_package_lock": "true",
+    "npm_config_parseable": "",
+    "npm_config_init_version": "1.0.0",
+    "BASH_FUNC_gitrepos_update_path%%": "() {  if [ -n \"$(git --git-dir=${1} --work-tree=$(dirname ${1}) status --porcelain)\" ]; then\n echo \"* $(dirname ${1})\" >> /tmp/gitrepos_update_report;\n else\n echo \"Updating repository $(dirname ${1})\";\n git --git-dir=${1} --work-tree=$(dirname ${1}) pull;\n fi\n}",
+    "BASH_FUNC_gitrepos_status_path%%": "() {  red=\"\\033[0;31m\";\n NC=\"\\033[0m\";\n dir=\"$(dirname $1)\";\n changes=$(git --git-dir=\"$1\" --work-tree=$dir status -s);\n if [ -n \"$changes\" ]; then\n change_msg=\"[`echo $changes | wc -l` uncommitted file(s)]\";\n dirty=1;\n fi;\n repo_gap=$(git --git-dir=\"$1\" --work-tree=$dir rev-list --left-right @{u}...);\n if [ -n \"$repo_gap\" ]; then\n ahead=`echo -e \"$repo_gap\" | grep '<' | wc -l`;\n behind=`echo -e \"$repo_gap\" | grep '>' | wc -l`;\n gap_msg=\"[need for synchronization ($ahead ahead - $behind behind)]\";\n dirty=1;\n fi;\n if [ -n \"$dirty\" ]; then\n echo -e \"${red}(*)${NC} $dir $change_msg $gap_msg\";\n else\n echo \"$dir\";\n fi\n}"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 65536,
+      "hard": 65536
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 524288,
+      "hard": 524288
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 63406,
+      "hard": 63406
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/usr/lib/libz.so.1",
+    "/usr/lib/libcares.so.2",
+    "/usr/lib/libnghttp2.so.14",
+    "/usr/lib/libcrypto.so.1.1",
+    "/usr/lib/libssl.so.1.1",
+    "/usr/lib/libicui18n.so.65",
+    "/usr/lib/libicuuc.so.65",
+    "/usr/lib/libdl.so.2",
+    "/usr/lib/libstdc++.so.6",
+    "/usr/lib/libm.so.6",
+    "/usr/lib/libgcc_s.so.1",
+    "/usr/lib/libpthread.so.0",
+    "/usr/lib/libc.so.6",
+    "/usr/lib/libicudata.so.65",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}

@@ -37,21 +37,21 @@ class Login extends Component {
                 type: "LOGIN_SUCCESS",
                 username: parsed.username
             })
+            this.props.history.push('/')
         }
         this.setState({
             username: "",
             password: ""
         })
-        this.props.history.push('/')
     }
     render = () => {
         return (
             <div className='center'>
-                <h2>Login</h2>
+                <h1>Login</h1>
                 <form onSubmit={this.submitHandler}>
                     <div >
-                        <div><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
-                        <div><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                        <div className='input-container'><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
+                        <div className='input-container'><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
                     </div>
                     <button className="button">Login!</button>
                 </form>
