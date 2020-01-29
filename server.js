@@ -42,6 +42,14 @@ app.get('/get-items', async (req, res) => {
     res.send(JSON.stringify({ success: true, items: arrayOfItems }))
 })
 
+app.get('/get-user-data', async (req, res) => {
+    console.log('get user data profile called')
+    const sessionId = req.cookies.sid
+    let user = await dbo.collection("users").findOne({ username: sessions[sessionId] })
+    console.log('user got', user)
+    res.send(JSON.stringify(user))
+})
+
 app.post('/signup', upload.none(), (req, res) => {
     console.log('Singin-up requested', req.body)
     let username = req.body.username
@@ -114,8 +122,23 @@ app.post('/add-item', upload.array('photos', 8), (req, res) => {
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        seller: req.body.username
+        seller: req.body.username,
+        year: req.body.year,
+        brand: req.body.brand,
+        type: req.body.type
     })
+    res.send(JSON.stringify({ success: true }))
+})
+
+app.post('/buy-item', upload.none(), (req, res) => {
+    console.log('buy-tem called')
+    const sessionId = req.cookies.sid
+    const order = JSON.parse(req.body.cart)
+    dbo.collection("users").updateOne({ username: sessions[sessionId] }, { $set: { purchases: purchases.concat(order) } })
+    order.forEach(item => {
+        dbo.collection("items").deleteOne({ _id: ObjectID(item._id) })
+    })
+    console.log('bought items', order)
     res.send(JSON.stringify({ success: true }))
 })
 

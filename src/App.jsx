@@ -7,6 +7,7 @@ import Shop from "./Shop.jsx"
 import Item from "./Item.jsx"
 import AddItem from "./AddItem.jsx"
 import Profile from "./Profile.jsx"
+import Checkout from "./Checkout.jsx"
 import { Route, BrowserRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -19,8 +20,8 @@ class App extends Component {
         console.log('appMounted')
         let data = await fetch('session')
         let response = await data.text()
+        console.log('user', response)
         let parsed = JSON.parse(response)
-        console.log(parsed)
         if (parsed.success) {
             this.props.dispatch({
                 type: 'LOGIN_SUCCESS',
@@ -51,14 +52,15 @@ class App extends Component {
                     {this.state.loading === false && (
                         <div className="content">
                             {this.state.loading && (<h1>Loading...</h1>)}
-                            <Route exact={true} path='/' render={routerData => { return <Home history={routerData.history} /> }} />
-                            <Route exact={true} path='/login' render={routerData => { return <Login history={routerData.history} /> }} />
-                            <Route exact={true} path='/signup' render={routerData => { return <Signup history={routerData.history} /> }} />
-                            <Route exact={true} path='/shop' render={routerData => { return <Shop history={routerData.history} /> }} />
-                            <Route exact={true} path='/profile' render={routerData => { return <Profile history={routerData.history} /> }} />
-                            <Route exact={true} path='/add-item' render={routerData => { return <AddItem history={routerData.history} /> }} />
+                            <Route exact={true} path='/' render={routerData => <Home history={routerData.history} />} />
+                            <Route exact={true} path='/login' render={routerData => <Login history={routerData.history} />} />
+                            <Route exact={true} path='/signup' render={routerData => <Signup history={routerData.history} />} />
+                            <Route exact={true} path='/shop' render={routerData => <Shop history={routerData.history} />} />
+                            <Route exact={true} path='/profile' render={routerData => <Profile history={routerData.history} />} />
+                            <Route exact={true} path='/add-item' render={routerData => <AddItem history={routerData.history} />} />
                             <Route exact={true} path='/item/:itemId' render={this.renderItem} />
-                            <Route exact={true} path='/cart' render={routerData => { return <Cart history={routerData.history} /> }} />
+                            <Route exact={true} path='/cart' render={routerData => <Cart history={routerData.history} />} />
+                            <Route exact={true} path='/checkout' render={routerData => <Checkout history={routerData.history} />} />
                         </div>)}
                 </div>
             </BrowserRouter>

@@ -12,7 +12,7 @@ class Item extends Component {
     addToCart = event => {
         event.preventDefault()
         let currItem = this.props.items.find(item => item._id === this.props.itemId)
-        this.props.dispatch({ type: "ADD_TO_CART", cart: this.props.cart.concat({ currItem }) })
+        this.props.dispatch({ type: "ADD_TO_CART", cart: this.props.cart.concat(currItem) })
     }
     changeImage = event => {
         event.preventDefault()
@@ -23,6 +23,10 @@ class Item extends Component {
         }
         this.setState({ index })
     }
+    miniaturesClick = (event, idx) => {
+        event.preventDefault()
+        this.setState({ index: idx })
+    }
     render = () => {
         let currItem = this.props.items.find(item => item._id === this.props.itemId)
         let paths = currItem.filesPaths
@@ -31,8 +35,8 @@ class Item extends Component {
             <div className="image-div">
                 <img className="item-image" src={paths[this.state.index]} onClick={this.changeImage} />
             </div>
-            <div>{paths.map((path, idx) => <img className="miniatures" key={idx} src={path} height="50px" />)}</div>
-            <div>{currItem.description}</div>
+            <div>{paths.map((path, idx) => <img className="miniatures" key={idx} src={path} height="50px" onClick={event => this.miniaturesClick(event, idx)} />)}</div>
+            <p>{currItem.description}</p>
             <div className="margin center">
                 <Link className="button" to="/shop">Shop</Link>
                 {this.props.logged.status === true && (<button className="button" onClick={this.addToCart}>Add to cart</button>)}

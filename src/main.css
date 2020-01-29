@@ -142,7 +142,7 @@ textarea:focus::placeholder {
 
 .cart-number {
     position: absolute;
-    right: 2px;
+    left: 14px;
     top: 0px;
     color: white;
     font-weight: bold;
@@ -152,12 +152,12 @@ textarea:focus::placeholder {
     font-size: 12px;
     height: 13px;
     text-align: center;
-    width: 12px;
+    width: 12px
 }
 
 .cart-div {
     position: absolute;
-    top: 65px;
+    top: 70px;
     right: 10px;
     width: 200px;
     background-color: white;
@@ -179,11 +179,6 @@ textarea:focus::placeholder {
     font-size: 16px;
     margin: 5px;
     border: 1px solid #2D3436;
-}
-
-.button:hover {
-    background-color: #636E72;
-    border-color: #636E72;
 }
 
 #search-container {
@@ -270,7 +265,7 @@ a:active {
 }
 
 .item-image {
-    max-width: 450px;
+    max-width: 600px;
     max-height: 450px;
 }
 
@@ -280,9 +275,18 @@ a:active {
     width:50px;
     height:50px;
 }
+.miniatures:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+p {
+    text-align: justify;
+}
 
 #item {
-    width: 500px;
+    padding:20px;
+    width: 660px;
     cursor:auto;
 }
 
@@ -292,6 +296,7 @@ a:active {
 
 .image-div {
     min-height:460px;
+    
 }
 
 .image-div>img:hover {   

@@ -17,6 +17,13 @@ const reducer = (state, action) => {
         }
     }
     if (action.type === "ADD_TO_CART") {
+        console.log('action.cart', action.cart)
+        return {
+            ...state,
+            cart: action.cart
+        }
+    }
+    if (action.type === "DELETE_ITEM") {
         return {
             ...state,
             cart: action.cart
@@ -28,6 +35,12 @@ const reducer = (state, action) => {
             logged: {
                 status: false
             }
+        }
+    }
+    if (action.type === "EMPTY_CART") {
+        return {
+            ...state,
+            cart: []
         }
     }
     return state
