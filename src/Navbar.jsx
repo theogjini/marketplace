@@ -19,7 +19,7 @@ class Navbar extends Component {
         return (
             <div className="navbar">
                 <div className="nav-left">
-                    <img className="logo" src="uploads/logo/guitar.png" height="30px" /><Link to="/" className="button"><h2>Guithub</h2></Link></div>
+                    <img className="logo" src="uploads/logo/logo.png" height="30px" /><Link to="/" className="button"><h2>Guithub</h2></Link></div>
                 {!this.props.logged.status && (<div>
                     <Link className="button" to="/login">Log in</Link>
                     <Link className="button" id="signup-button" to="/signup">Sign up</Link>

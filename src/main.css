@@ -1,5 +1,4 @@
 body {
-    background-color: #DFE6E9;
     margin: 0;
     font-family: 'Cuprum', sans-serif;
     color: #2D3436
@@ -12,10 +11,12 @@ body {
 
 .card {
     background-color: #fff;
-    box-shadow: 3px 3px 0px -0.5px rgba(45,52,54,0.46);
+    box-shadow:3px 3px 7px -0.5px rgba(45,52,54,0.46);
+    /* box-shadow: 3px 3px 0px -0.5px rgba(45,52,54,0.46); */
     padding: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    /* border-radius:6px; */
     border-radius:1px;
     text-align: center;
     width: 300px;
@@ -23,8 +24,8 @@ body {
 
 .card:hover {
     cursor: pointer;
-    box-shadow: 3px 3px 0px 0px rgba(45,52,54,0.46);
-    opacity: 0.7;
+    /* box-shadow: 3px 3px 0px 0px rgba(45,52,54,0.46); */
+    box-shadow:3px 3px 3px -0.5px rgba(45,52,54,0.46);
 }
 
 .card-img {
@@ -66,6 +67,11 @@ body {
     justify-content: center;
     position: relative;
     padding-top: 20px;
+    box-shadow: 0 0 20px -5px;
+    width: 75%;
+    margin: auto;
+    min-height: 92vh;
+    background-color: #f3f3f3;
 }
 
 form {
@@ -162,7 +168,7 @@ textarea:focus::placeholder {
     width: 200px;
     background-color: white;
     color: #2D3436;
-    box-shadow: 3px 3px 0px -1px rgba(45,52,54,0.46);
+    box-shadow: 3px 3px 6px -1px rgba(45,52,54,0.46);
     padding: 10px;
 }
 
@@ -210,12 +216,13 @@ textarea:focus::placeholder {
     position: sticky;
     left:0;
     top: 0;
-    width: 100%;
+    width: 75%;
     background-color: #2D3436;
     color: white;
     height: 50px;
     align-items: center;
     justify-content: space-between;
+    margin:auto;
 }
 
 .nav-left {
@@ -288,10 +295,12 @@ p {
     padding:20px;
     width: 660px;
     cursor:auto;
+    box-shadow: none;
 }
 
 #item:hover {
     opacity: 1;
+    box-shadow: none;
 }
 
 .image-div {

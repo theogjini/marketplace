@@ -134,7 +134,7 @@ app.post('/buy-item', upload.none(), (req, res) => {
     console.log('buy-tem called')
     const sessionId = req.cookies.sid
     const order = JSON.parse(req.body.cart)
-    dbo.collection("users").updateOne({ username: sessions[sessionId] }, { $set: { purchases: purchases.concat(order) } })
+    dbo.collection("users").updateOne({ username: sessions[sessionId] }, { $set: { purchases: order } })
     order.forEach(item => {
         dbo.collection("items").deleteOne({ _id: ObjectID(item._id) })
     })
