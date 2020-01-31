@@ -23,9 +23,14 @@ class Home extends Component {
     }
     render = () => {
         return (<div>
-            <h1 style={{ position: 'relative', zIndex: 1000, fontFamily: 'Cabin Sketch', fontSize: "70px" }}>Enter in a world of guitars...</h1>
-            <h1 style={{ cursor: "pointer", position: 'relative', zIndex: 1000, top: this.state.position + "px" }}><img src="/uploads/logo/pick.png" onClick={event => this.props.history.push('/shop')} height="60px"></img></h1>
-            <img src="/uploads/logo/background.jpg" height="100%" width="100%" style={{ cursor: "pointer", objectFit: 'cover', position: 'absolute', top: '0', left: '0' }} onClick={event => this.props.history.push('/shop')}></img>
+            <h1 id='pick' style={{ cursor: "pointer", position: 'relative', zIndex: 1000, top: '130px' }}>
+                <img src="/uploads/logo/pick.png" onClick={event => this.props.history.push('/shop')} height="60px"></img>
+            </h1>
+            <h1 style={{ cursor: "pointer", position: 'relative', zIndex: 1000, top: '150px' }}>Welcome to a world of guitars...</h1>
+            <img src="/uploads/logo/background.jpg" height="100%" width="100%"
+                style={{ cursor: "pointer", objectFit: 'cover', position: 'absolute', top: '0', left: '0' }}
+                onClick={event => this.props.history.push('/shop')}>
+            </img>
         </div >)
     }
 }

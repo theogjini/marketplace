@@ -311,3 +311,12 @@ p {
 .image-div>img:hover {   
     cursor: pointer;
 }
+
+#pick {
+    animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce{
+    from {transform: translateY(0);}
+    to   {transform: translateY(-20px);}
+}
