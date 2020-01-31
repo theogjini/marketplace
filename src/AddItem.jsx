@@ -49,7 +49,7 @@ class AddItem extends Component {
         data.append("year", this.state.year)
         data.append("type", this.state.type)
         data.append("brand", this.state.brand)
-        let request = await fetch('add-item', { method: "POST", body: data })
+        let request = await fetch('/add-item', { method: "POST", body: data })
         let response = await request.json()
         if (response.success) {
             alert("Your guitar has been put on sale! Oh my god... so sad...")
@@ -59,6 +59,14 @@ class AddItem extends Component {
                 price: "",
                 files: null
             })
+            let loadItems = await fetch('/get-items')
+            let itemsGot = await loadItems.text()
+            let parsedItems = JSON.parse(itemsGot)
+            if (parsedItems.success) {
+                console.log('items successfully loaded', parsedItems.items)
+                this.props.dispatch({ type: "LOAD_ITEMS_DB", items: parsedItems.items })
+            }
+            this.props.history.push('/profile')
         }
     }
     render = () => {

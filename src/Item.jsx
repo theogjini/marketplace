@@ -12,6 +12,7 @@ class Item extends Component {
     addToCart = event => {
         event.preventDefault()
         let currItem = this.props.items.find(item => item._id === this.props.itemId)
+        if (this.props.cart.includes(currItem)) { return alert('It is a unique instrument... Impossible to buy it twice!') }
         this.props.dispatch({ type: "ADD_TO_CART", cart: this.props.cart.concat(currItem) })
     }
     changeImage = event => {
@@ -39,7 +40,9 @@ class Item extends Component {
             <p>{currItem.description}</p>
             <div className="margin center">
                 <Link className="button" to="/shop">Shop</Link>
-                {this.props.logged.status === true && (<button className="button" onClick={this.addToCart}>Add to cart</button>)}
+                {this.props.logged.status
+                    ? <button className="button" onClick={this.addToCart}>Add to cart</button>
+                    : <Link className="button" to="/login">Login to buy</Link>}
             </div>
         </div >)
     }

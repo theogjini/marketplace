@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Signup extends Component {
     constructor() {
@@ -41,6 +42,13 @@ class Signup extends Component {
             password: "",
             email: ""
         })
+        if (parsed.success) {
+            this.props.dispatch({
+                type: "LOGIN_SUCCESS",
+                username: parsed.username
+            })
+            this.props.history.push('/')
+        }
     }
     render = () => {
         return (
@@ -61,4 +69,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup
+export default connect()(Signup)

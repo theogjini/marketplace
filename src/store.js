@@ -12,8 +12,14 @@ const reducer = (state, action) => {
             ...state,
             logged: {
                 status: true,
-                username: action.username
+                username: action.username,
             }
+        }
+    }
+    if (action.type === 'GET_USER_DATA') {
+        return {
+            ...state,
+            userData: action.userData
         }
     }
     if (action.type === "ADD_TO_CART") {
@@ -48,11 +54,13 @@ const reducer = (state, action) => {
 
 const store = createStore(
     reducer, {
+    popupItem: false,
     items: [],
     logged: {
         status: false
     },
-    cart: []
+    cart: [],
+    userData: {}
 },
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

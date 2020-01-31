@@ -32,17 +32,17 @@ class Login extends Component {
         let parsed = await JSON.parse(responseBody)
         console.log(parsed)
         if (!parsed.success) { alert(parsed.desc) }
+        this.setState({
+            username: "",
+            password: ""
+        })
         if (parsed.success) {
             this.props.dispatch({
                 type: "LOGIN_SUCCESS",
                 username: parsed.username
             })
-            this.props.history.push('/')
+            this.props.history.push('/shop')
         }
-        this.setState({
-            username: "",
-            password: ""
-        })
     }
     render = () => {
         return (

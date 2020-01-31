@@ -18,7 +18,7 @@ class App extends Component {
     }
     async componentDidMount() {
         console.log('appMounted')
-        let data = await fetch('session')
+        let data = await fetch('/session')
         let response = await data.text()
         console.log('user', response)
         let parsed = JSON.parse(response)
@@ -28,7 +28,7 @@ class App extends Component {
                 username: parsed.username
             })
         }
-        let loadItems = await fetch('get-items')
+        let loadItems = await fetch('/get-items')
         let itemsGot = await loadItems.text()
         let parsedItems = JSON.parse(itemsGot)
         if (parsedItems.success) {

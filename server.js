@@ -30,7 +30,7 @@ app.get('/session', (req, res) => {
     let sessionId = req.cookies.sid
     console.log('sessions', sessions)
     if (sessions[sessionId]) {
-        console.log('success', sessions.sessionId)
+        console.log('success', sessions[sessionId])
         return res.send(JSON.stringify({ success: true, username: sessions[sessionId] }))
     }
     res.send(JSON.stringify({ success: false }))
@@ -63,7 +63,10 @@ app.post('/signup', upload.none(), (req, res) => {
         if (user === null) {
             console.log('signup processing')
             dbo.collection('users').insertOne({ username, password: sha1(password), email })
-            return res.send(JSON.stringify({ success: true, desc: "Signup successful!!" }))
+            let sessionId = uuidv1()
+            sessions[sessionId] = username
+            res.cookie('sid', sessionId)
+            return res.send(JSON.stringify({ success: true, desc: "Signup successful!!", username }))
         }
         if (user) {
             return res.send(JSON.stringify({ success: false, desc: "Username Taken" }))

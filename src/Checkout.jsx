@@ -30,13 +30,13 @@ export default function Checkout(props) {
         data.append("creditCardExpiry", creditCardExpiry)
         data.append("CCV", CCV)
         data.append("cart", JSON.stringify(cart))
-        let request = await fetch('buy-item', { method: "POST", body: data })
+        let request = await fetch('/buy-item', { method: "POST", body: data })
         let response = await request.json()
         if (response.success) {
             alert("well bought dude")
             dispatch({ type: "EMPTY_CART" })
             history.push('/')
-            let loadItems = await fetch('get-items')
+            let loadItems = await fetch('/get-items')
             let itemsGot = await loadItems.text()
             let parsedItems = JSON.parse(itemsGot)
             if (parsedItems.success) {
