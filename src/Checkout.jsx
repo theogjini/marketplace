@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export default function Checkout(props) {
     const [name, setName] = useState("")
@@ -53,7 +54,14 @@ export default function Checkout(props) {
             }
         }
     }
+    const prices = cart.map(item => item.price)
     return (<div>
+        {cart.length > 0 && <div>< h1 > Your total:
+    {prices.reduce((total, price) => parseInt(total) + parseInt(price)) + " $"}</h1>
+            {cart.map(item => {
+                return <img className="miniatures" src={item.filesPaths[0]}></img>
+            })}
+        </div>}
         <h1>Checkout here</h1>
         <form onSubmit={onSubmitHandler}>
             <h4>Shipping address</h4>
@@ -66,6 +74,7 @@ export default function Checkout(props) {
             <div className='input-container'><input type="CCV" onChange={event => setCCV(event.target.value)} value={CCV} placeholder="CCV..." /></div>
             <div className='input-container'><input type="month" onChange={event => setCreditCardExpiry(event.target.value)} value={creditCardExpiry} /></div>
             <div className="center"><button className="button" type="submit">Proceed!</button></div>
+            <div className="center margin"><Link className="button" to="/shop">Back to shop!</Link></div>
         </form>
     </div >
     )

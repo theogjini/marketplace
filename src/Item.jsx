@@ -48,7 +48,7 @@ class Item extends Component {
             <p>{currItem.description}</p>
             <h2 style={{ textAlign: 'left' }}>{currItem.price + " $CAD"}</h2>
             <div className="margin center">
-                <Link className="button" to="/shop">Shop</Link>
+                <Link className="button" to="/shop">Back to shop!</Link>
                 {this.props.logged.status
                     ? seller !== this.props.logged.username && (<button className="button" onClick={this.addToCart}>Add to cart</button>)
                     : <Link className="button" to="/login">Login to buy</Link>}

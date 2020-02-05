@@ -37,7 +37,7 @@ export default function Profile(props) {
         <h1 className="center">Profile here...</h1>
         <div>
             <div className="input-container"><Link to="/add-item" className="button">Sell a guitar</Link>
-                <Link to="/shop" className="button">Go to shop</Link>
+                <Link to="/shop" className="button">Back to shop!</Link>
                 <button className="button" onClick={event => handleLogout(event)}>Logout</button></div>
         </div >
         {userItems.length > 0 && <div>

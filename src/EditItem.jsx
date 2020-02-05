@@ -37,7 +37,6 @@ export default function EditItem(props) {
         let request = await fetch('/update-item', { method: "POST", body: data })
         let response = await request.json()
         if (response.success) {
-            alert("Your ad has been updated")
             let loadItems = await fetch('/get-items')
             let itemsGot = await loadItems.text()
             let parsedItems = JSON.parse(itemsGot)
@@ -60,7 +59,7 @@ export default function EditItem(props) {
                 <div className='input-container'><input type="text" onChange={event => setType(event.target.value)} value={type} placeholder="Type..." /></div>
                 <div className='input-container'><input id="file-input" type="file" onChange={event => setFiles(event.target.files)} multiple /></div>
             </div>
-            <div className='center'><button className="button">Modify your ad!</button></div>
+            <div className='center'><button className="button">Save!</button></div>
         </form>
     </div>)
 }

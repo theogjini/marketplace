@@ -118,7 +118,6 @@ app.post('/update-item', upload.array('photos', 8), (req, res) => {
     console.log("change this files:", files)
     let filesPaths = []
     if (files.length !== 0) {
-        console.log
         for (let i = 0; i < files.length; i++) {
             filesPaths.push('/uploads/itemImages/' + files[i].filename)
         }
