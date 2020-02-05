@@ -112,6 +112,33 @@ app.post('/logout', (req, res) => {
     res.send(JSON.stringify({ success: true, desc: 'logout successful' }))
 })
 
+app.post('/update-item', upload.array('photos', 8), (req, res) => {
+    console.log('item-updating called!')
+    let files = req.files
+    console.log("change this files:", files)
+    let filesPaths = []
+    if (files.length !== 0) {
+        console.log
+        for (let i = 0; i < files.length; i++) {
+            filesPaths.push('/uploads/itemImages/' + files[i].filename)
+        }
+    } else { filesPaths = JSON.parse(req.body.paths) }
+    console.log('request to update files :', filesPaths)
+    dbo.collection('items').updateOne({ _id: ObjectID(req.body.itemId) }, {
+        $set: {
+            filesPaths,
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            seller: req.body.username,
+            year: req.body.year,
+            brand: req.body.brand,
+            type: req.body.type
+        }
+    })
+    res.send(JSON.stringify({ success: true }))
+})
+
 app.post('/add-item', upload.array('photos', 8), (req, res) => {
     console.log(req.files)
     let files = req.files
@@ -135,9 +162,10 @@ app.post('/add-item', upload.array('photos', 8), (req, res) => {
 
 app.post('/buy-item', upload.none(), (req, res) => {
     console.log('buy-tem called')
-    const sessionId = req.cookies.sid
+    const username = sessions[req.cookies.sid]
     const order = JSON.parse(req.body.cart)
-    dbo.collection("users").updateOne({ username: sessions[sessionId] }, { $set: { purchases: order } })
+    dbo.collection("users").updateOne({ username: username }, { $set: { purchases: order } })
+    dbo.collection("orders").insertOne({ username, order })
     order.forEach(item => {
         dbo.collection("items").deleteOne({ _id: ObjectID(item._id) })
     })

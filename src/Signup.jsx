@@ -57,8 +57,8 @@ class Signup extends Component {
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <div className='input-container'><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
-                        <div className='input-container'><input type="text" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
-                        <div className='input-container'><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                        <div className='input-container'><input type="email" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
+                        <div className='input-container'><input type="password" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
                     </div>
                     <button className="button">Sign up!</button>
                 </form>

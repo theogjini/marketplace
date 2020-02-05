@@ -40,7 +40,7 @@ export default function Profile(props) {
                 <Link to="/shop" className="button">Go to shop</Link>
                 <button className="button" onClick={event => handleLogout(event)}>Logout</button></div>
         </div >
-        {userItems && <div>
+        {userItems.length > 0 && <div>
             <h2>Your items to sell:</h2>
             {userItems.map((item, idx) => {
                 return <div key={idx}>
@@ -49,7 +49,7 @@ export default function Profile(props) {
                 </div>
             })}
         </div>}
-        <div style={{ textAlign: 'left' }}>
+        {userData.purchases && < div style={{ textAlign: 'left' }}>
             <h2>Previously purchased...</h2>
             {userData.purchases && userData.purchases.map((item, idx) => {
                 return (<div key={idx}>
@@ -57,6 +57,6 @@ export default function Profile(props) {
                     <div><img src={item.filesPaths[0]} className="miniatures" height="75px" /></div>
                 </div>)
             })}
-        </div>
+        </div>}
     </div >)
 }

@@ -21,6 +21,14 @@ export default function Checkout(props) {
 
     async function onSubmitHandler(event) {
         event.preventDefault()
+        const check = [name, address, city, country, creditCard, creditCardExpiry, CCV].includes("")
+        if (check) {
+            return alert("Please fill every field!")
+        }
+        if (cart.length === 0) {
+            alert("Your cart is empty, go shopping")
+            return history.push('/shop')
+        }
         let data = new FormData()
         data.append("name", name)
         data.append("adress", address)

@@ -9,8 +9,6 @@ class Navbar extends Component {
             displayedCart: false
         }
     }
-    async componentDidMount() {
-    }
     displayCart = event => {
         event.preventDefault()
         this.setState({ displayedCart: !this.state.displayedCart })

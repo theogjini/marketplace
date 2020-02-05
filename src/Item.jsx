@@ -28,20 +28,29 @@ class Item extends Component {
         event.preventDefault()
         this.setState({ index: idx })
     }
+    clickEdit = event => {
+        event.preventDefault()
+        this.props.history.push('/item/' + this.props.itemId + '/edit')
+    }
     render = () => {
         let currItem = this.props.items.find(item => item._id === this.props.itemId)
         let paths = currItem.filesPaths
+        let seller = currItem.seller
         return (<div id="item" className="center card">
-            <h1>{currItem.title}</h1>
+            <h1>{currItem.title}
+                {seller === this.props.logged.username
+                    && (<span className="miniatures"><img src="/uploads/logo/pen.png" onClick={this.clickEdit} height="25px" /></span>)}
+            </h1>
             <div className="image-div">
                 <img className="item-image" src={paths[this.state.index]} onClick={this.changeImage} />
             </div>
             <div>{paths.map((path, idx) => <img className="miniatures" key={idx} src={path} height="50px" onClick={event => this.miniaturesClick(event, idx)} />)}</div>
             <p>{currItem.description}</p>
+            <h2 style={{ textAlign: 'left' }}>{currItem.price + " $CAD"}</h2>
             <div className="margin center">
                 <Link className="button" to="/shop">Shop</Link>
                 {this.props.logged.status
-                    ? <button className="button" onClick={this.addToCart}>Add to cart</button>
+                    ? seller !== this.props.logged.username && (<button className="button" onClick={this.addToCart}>Add to cart</button>)
                     : <Link className="button" to="/login">Login to buy</Link>}
             </div>
         </div >)

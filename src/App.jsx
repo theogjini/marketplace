@@ -10,6 +10,7 @@ import Profile from "./Profile.jsx"
 import Checkout from "./Checkout.jsx"
 import { Route, BrowserRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import EditItem from './EditItem.jsx'
 
 class App extends Component {
     constructor(props) {
@@ -58,7 +59,14 @@ class App extends Component {
                             <Route exact={true} path='/shop' render={routerData => <Shop history={routerData.history} />} />
                             <Route exact={true} path='/profile' render={routerData => <Profile history={routerData.history} />} />
                             <Route exact={true} path='/add-item' render={routerData => <AddItem history={routerData.history} />} />
-                            <Route exact={true} path='/item/:itemId' render={this.renderItem} />
+                            <Route exact={true} path='/item/:itemId' render={routerData =>
+                                <Item
+                                    itemId={routerData.match.params.itemId}
+                                    history={routerData.history} />} />
+                            <Route exact={true} path='/item/:itemId/edit' render={routerData =>
+                                <EditItem
+                                    itemId={routerData.match.params.itemId}
+                                    history={routerData.history} />} />
                             <Route exact={true} path='/cart' render={routerData => <Cart history={routerData.history} />} />
                             <Route exact={true} path='/checkout' render={routerData => <Checkout history={routerData.history} />} />
                         </div>)}

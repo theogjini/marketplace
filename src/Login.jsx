@@ -41,7 +41,7 @@ class Login extends Component {
                 type: "LOGIN_SUCCESS",
                 username: parsed.username
             })
-            this.props.history.push('/shop')
+            this.props.history.goBack()
         }
     }
     render = () => {
@@ -51,7 +51,7 @@ class Login extends Component {
                 <form onSubmit={this.submitHandler}>
                     <div >
                         <div className='input-container'><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
-                        <div className='input-container'><input type="text" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
+                        <div className='input-container'><input type="password" onChange={this.pwdChangeHandler} value={this.state.password} placeholder="Password..." /></div>
                     </div>
                     <button className="button">Login!</button>
                 </form>
