@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+// function wait(timeToWait) {
+//     const date = Date.now()
+//     while (Date.now() - date < timeToWait) {
+//         console.log('nothing')
+//     }
+//     return
+// }
+
 class Shop extends Component {
     constructor(props) {
         super(props)
@@ -36,15 +44,15 @@ class Shop extends Component {
         return (<div className="center flex option">
             <select className="button" onChange={this.selectBrand}>
                 <option defaultValue="">Brand</option>
-                {brands.map(brand => <option value={brand}>{brand}</option>)}
+                {brands.map(brand => <option key={brand} value={brand}>{brand}</option>)}
             </select>
             <select className="button" onChange={this.selectYear}>
                 <option defaultValue="">Year</option>
-                {years.map(year => <option value={year}>{year}</option>)}
+                {years.map(year => <option key={year} value={year}>{year}</option>)}
             </select>
             <select className="button" onChange={this.selectType}>
                 <option defaultValue="">Type</option>
-                {types.map(type => <option value={type}>{type}</option>)}
+                {types.map(type => <option key={type} value={type}>{type}</option>)}
             </select>
         </div >)
     }

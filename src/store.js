@@ -38,6 +38,7 @@ const reducer = (state, action) => {
     if (action.type === 'LOGOUT') {
         return {
             ...state,
+            cart: [],
             logged: {
                 status: false
             }

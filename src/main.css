@@ -20,12 +20,15 @@ body {
     border-radius:1px;
     text-align: center;
     width: 300px;
+    animation: slide-up 0.25s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 
 .card:hover {
     cursor: pointer;
     /* box-shadow: 3px 3px 0px 0px rgba(45,52,54,0.46); */
-    box-shadow:3px 3px 3px -0.5px rgba(45,52,54,0.46);
+    box-shadow:3px 3px 10px 3px rgba(45,52,54,0.46);
+    margin-top: -2px;
 }
 
 .card-img {
@@ -95,7 +98,7 @@ input:hover {
 }
 
 input::placeholder {
-    color: #2D3436;
+    color: rgb(143, 160, 165);
     transition:0.10s ease-in-out;
 }
 
@@ -126,7 +129,7 @@ textarea:hover {
 }
 
 textarea::placeholder {
-    color: #2D3436;
+    color: rgb(143, 160, 165);
     transition:0.10s ease-in-out;
 }
 
@@ -170,6 +173,18 @@ textarea:focus::placeholder {
     color: #2D3436;
     box-shadow: 3px 3px 6px -1px rgba(45,52,54,0.46);
     padding: 10px;
+    animation: slide-up 0.3s ease-in-out;
+}
+
+@keyframes slide-up{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .button {
@@ -269,12 +284,27 @@ a:active {
 
 .option {   
     margin-bottom: 20px;
+    animation: slide 0.1s ease-in;
 }
 
-.item-image {
-    max-width: 600px;
-    max-height: 450px;
+@keyframes slide {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 42px;
+        opacity: 1;
+    }
 }
+/* @keyframes out {
+    from {
+        height: 42px;
+    }
+    to {
+        height: 0;
+    }
+} */
 
 .miniatures {
     margin: 10px;
@@ -285,6 +315,24 @@ a:active {
 .miniatures:hover {
     opacity: 0.7;
     cursor: pointer;
+    box-shadow: 3px 3px 0px -1px rgba(45,52,54,0.46);
+    width:60px;
+    height:60px;
+    margin:0 2px;
+    border: 3px solid #2D3436;
+    border-radius: 2px;
+}
+
+.mini {
+    margin: 10px;
+    object-fit: cover;
+    width:50px;
+    height:50px;
+}
+
+.mini:hover {
+    cursor: pointer;
+    opacity:0.8;
 }
 
 p {
@@ -296,16 +344,20 @@ p {
     width: 660px;
     cursor:auto;
     box-shadow: none;
-}
-
-#item:hover {
-    opacity: 1;
-    box-shadow: none;
+    animation: test 0.1s ease-in-out;
 }
 
 .image-div {
     min-height:460px;
-    
+}
+.item-image {
+    max-width: 600px;
+    max-height: 450px;
+}
+
+@keyframes test{
+    0% {transform: scale(0.95)}
+    100% {transform: scale(1)}
 }
 
 .image-div>img:hover {   
@@ -316,7 +368,16 @@ p {
     animation: bounce 0.6s ease infinite alternate;
 }
 
+#pick:hover {
+    animation: bounce 0.3s ease infinite alternate;
+}
 @keyframes bounce{
     from {transform: translateY(0);}
     to   {transform: translateY(-20px);}
+}
+
+.edit-input-name {
+    margin-bottom: 5px;
+    color: #963436;
+    font-style: italic;
 }

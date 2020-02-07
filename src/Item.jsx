@@ -36,10 +36,10 @@ class Item extends Component {
         let currItem = this.props.items.find(item => item._id === this.props.itemId)
         let paths = currItem.filesPaths
         let seller = currItem.seller
-        return (<div id="item" className="center card">
+        return (<div id="item" className="center">
             <h1>{currItem.title}
                 {seller === this.props.logged.username
-                    && (<span className="miniatures"><img src="/uploads/logo/pen.png" onClick={this.clickEdit} height="25px" /></span>)}
+                    && (<span className="mini"><img src="/uploads/logo/pen.png" onClick={this.clickEdit} height="25px" /></span>)}
             </h1>
             <div className="image-div">
                 <img className="item-image" src={paths[this.state.index]} onClick={this.changeImage} />

@@ -10,7 +10,7 @@ export default function Checkout(props) {
     const [country, setCountry] = useState("")
     const [creditCard, setCreditCard] = useState("")
     const [creditCardExpiry, setCreditCardExpiry] = useState("")
-    const [CCV, setCCV] = useState("")
+    const [CVC, setCVC] = useState("")
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const history = useHistory()
@@ -56,10 +56,10 @@ export default function Checkout(props) {
     }
     const prices = cart.map(item => item.price)
     return (<div>
-        {cart.length > 0 && <div>< h1 > Your total:
-    {prices.reduce((total, price) => parseInt(total) + parseInt(price)) + " $"}</h1>
+        {cart.length > 0 && <div>< h1 >{"Your total:" + " "}
+            {prices.reduce((total, price) => parseInt(total) + parseInt(price)) + " $"}</h1>
             {cart.map(item => {
-                return <img className="miniatures" src={item.filesPaths[0]}></img>
+                return <img className="mini" src={item.filesPaths[0]}></img>
             })}
         </div>}
         <h1>Checkout here</h1>
@@ -71,10 +71,9 @@ export default function Checkout(props) {
             <div className='input-container'><input type="text" onChange={event => setCountry(event.target.value)} value={country} placeholder="Country..." /></div>
             <h4>Credit card informations</h4>
             <div className='input-container'><input type="credit card" onChange={event => setCreditCard(event.target.value)} value={creditCard} placeholder="Credit card number..." /></div>
-            <div className='input-container'><input type="CCV" onChange={event => setCCV(event.target.value)} value={CCV} placeholder="CCV..." /></div>
+            <div className='input-container'><input type="CVC" onChange={event => setCVC(event.target.value)} value={CVC} placeholder="CVC..." /></div>
             <div className='input-container'><input type="month" onChange={event => setCreditCardExpiry(event.target.value)} value={creditCardExpiry} /></div>
-            <div className="center"><button className="button" type="submit">Proceed!</button></div>
-            <div className="center margin"><Link className="button" to="/shop">Back to shop!</Link></div>
+            <div className="center"><button className="button" type="submit">Proceed!</button><Link className="button" to="/shop">Back to shop!</Link></div>
         </form>
     </div >
     )

@@ -34,29 +34,29 @@ export default function Profile(props) {
         }
     }
     return (<div>
-        <h1 className="center">Profile here...</h1>
-        <div>
-            <div className="input-container"><Link to="/add-item" className="button">Sell a guitar</Link>
-                <Link to="/shop" className="button">Back to shop!</Link>
-                <button className="button" onClick={event => handleLogout(event)}>Logout</button></div>
-        </div >
+        <h1>Welcome {logged.username}</h1>
         {userItems.length > 0 && <div>
             <h2>Your items to sell:</h2>
             {userItems.map((item, idx) => {
-                return <div key={idx}>
-                    <p>{item.title}</p>
-                    <Link to={"/item/" + item._id}><img src={item.filesPaths[0]} className="miniatures" height="75px" /></Link>
+                return <div key={idx} className="center">
+                    <p style={{ textAlign: 'center' }}>{item.title}</p>
+                    <Link to={"/item/" + item._id}><img src={item.filesPaths[0]} className="mini" height="75px" /></Link>
                 </div>
             })}
         </div>}
         {userData.purchases && < div style={{ textAlign: 'left' }}>
             <h2>Previously purchased...</h2>
             {userData.purchases && userData.purchases.map((item, idx) => {
-                return (<div key={idx}>
-                    <p>{item.title}</p>
-                    <div><img src={item.filesPaths[0]} className="miniatures" height="75px" /></div>
+                return (<div key={idx} className="center">
+                    <p style={{ textAlign: 'center' }}>{item.title}</p>
+                    <div><img src={item.filesPaths[0]} className="mini" height="75px" /></div>
                 </div>)
             })}
         </div>}
+        <div>
+            <div className="input-container"><Link to="/add-item" className="button">Sell a guitar</Link>
+                <Link to="/shop" className="button">Back to shop!</Link>
+                <button className="button" onClick={event => handleLogout(event)}>Logout</button></div>
+        </div >
     </div >)
 }

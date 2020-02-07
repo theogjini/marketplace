@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 export default function EditItem(props) {
     const items = useSelector(state => state.items)
@@ -44,22 +45,33 @@ export default function EditItem(props) {
                 console.log('items successfully loaded', parsedItems.items)
                 dispatch({ type: "LOAD_ITEMS_DB", items: parsedItems.items })
             }
+            alert('Your ad has been updated!')
             history.push('/item/' + currItem._id)
         }
+    }
+    function handleCancel() {
+        return history.goBack()
     }
     return (<div>
         <h1>Edit</h1>
         <form onSubmit={submitHandler}>
             <div >
+                <div className="edit-input-name" >Title</div>
                 <div className='input-container'><input type="text" onChange={event => setTitle(event.target.value)} value={title} placeholder="Title..." /></div>
+                <div className="edit-input-name" >Description</div>
                 <div className='input-container'><textarea id="description" onChange={event => setDescription(event.target.value)} value={description} placeholder="Description..."></textarea></div>
+                <div className="edit-input-name" >Price</div>
                 <div className='input-container'><input type="text" onChange={event => setPrice(event.target.value)} value={price} placeholder="Price..." /></div>
+                <div className="edit-input-name" >Year</div>
                 <div className='input-container'><input type="text" onChange={event => setYear(event.target.value)} value={year} placeholder="Year..." /></div>
+                <div className="edit-input-name" >Brand</div>
                 <div className='input-container'><input type="text" onChange={event => setBrand(event.target.value)} value={brand} placeholder="Brand..." /></div>
+                <div className="edit-input-name" >Type</div>
                 <div className='input-container'><input type="text" onChange={event => setType(event.target.value)} value={type} placeholder="Type..." /></div>
                 <div className='input-container'><input id="file-input" type="file" onChange={event => setFiles(event.target.files)} multiple /></div>
             </div>
-            <div className='center'><button className="button">Save!</button></div>
+            <div className='center'><button className="button">Save!</button><Link to={"/item/" + currItem._id} className="button">Cancel</Link></div>
+            <div className='center'></div>
         </form>
     </div>)
 }

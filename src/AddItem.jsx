@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class AddItem extends Component {
     constructor(props) {
@@ -74,15 +75,21 @@ class AddItem extends Component {
             <h1>Sell a guitar</h1>
             <form onSubmit={this.submitHandler}>
                 <div >
+                    <div className="edit-input-name" >Title</div>
                     <div className='input-container'><input type="text" onChange={this.titleHandler} value={this.state.title} placeholder="Title..." /></div>
+                    <div className="edit-input-name" >Description</div>
                     <div className='input-container'><textarea id="description" onChange={this.descChangeHandler} value={this.state.description} placeholder="Description..."></textarea></div>
+                    <div className="edit-input-name" >Price</div>
                     <div className='input-container'><input type="text" onChange={this.priceChangeHandler} value={this.state.price} placeholder="Price..." /></div>
+                    <div className="edit-input-name" >Year</div>
                     <div className='input-container'><input type="text" onChange={this.yearChangeHandler} value={this.state.year} placeholder="Year..." /></div>
+                    <div className="edit-input-name" >Brand</div>
                     <div className='input-container'><input type="text" onChange={this.brandChangeHandler} value={this.state.brand} placeholder="Brand..." /></div>
+                    <div className="edit-input-name" >Type</div>
                     <div className='input-container'><input type="text" onChange={this.typeChangeHandler} value={this.state.type} placeholder="Type..." /></div>
                     <div className='input-container'><input id="file-input" type="file" onChange={this.filesChangeHandler} multiple /></div>
                 </div>
-                <div className='center'><button className="button">Add!</button></div>
+                <div className='center'><button className="button">Add!</button><Link className="button" to="/profile">Cancel</Link></div>
             </form>
         </div >)
     }

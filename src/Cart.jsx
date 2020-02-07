@@ -28,7 +28,7 @@ class Cart extends Component {
                         <div className="flex center">
                             <button style={{ fontSize: "10px" }} className="button" onClick={() => this.deleteItem(event, idx)}>x</button>
                             <p>{item.title}</p>
-                            <Link to={"/item/" + item._id}><img src={item.filesPaths[0]} className="miniatures" height="75px" /></Link>
+                            <Link to={"/item/" + item._id}><img src={item.filesPaths[0]} className="mini" height="75px" /></Link>
                             <h4>{item.price + " $"}</h4>
                         </div>
                     </div>)
