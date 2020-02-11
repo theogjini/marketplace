@@ -162,13 +162,14 @@ app.post('/add-item', upload.array('photos', 8), (req, res) => {
 app.post('/buy-item', upload.none(), (req, res) => {
     console.log('buy-tem called')
     const username = sessions[req.cookies.sid]
-    const order = JSON.parse(req.body.cart)
-    dbo.collection("users").updateOne({ username: username }, { $set: { purchases: order } })
-    dbo.collection("orders").insertOne({ username, order })
-    order.forEach(item => {
+    const purchasedItems = JSON.parse(req.body.cart)
+    const orderInfos = req.body
+    dbo.collection("users").updateOne({ username: username }, { $set: { purchases: purchasedItems } })
+    dbo.collection("orders").insertOne({ username, orderInfos })
+    purchasedItems.forEach(item => {
         dbo.collection("items").deleteOne({ _id: ObjectID(item._id) })
     })
-    console.log('bought items', order)
+    console.log('bought items', orderInfos)
     res.send(JSON.stringify({ success: true }))
 })
 

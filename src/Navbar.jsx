@@ -5,13 +5,10 @@ import Cart from './Cart.jsx'
 class Navbar extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            displayedCart: false
-        }
     }
     displayCart = event => {
         event.preventDefault()
-        this.setState({ displayedCart: !this.state.displayedCart })
+        this.props.dispatch({ type: "DISPLAY_CART", displayedCart: !this.props.displayedCart })
     }
     render = () => {
         return (
@@ -24,7 +21,7 @@ class Navbar extends Component {
                 </div>)}
                 {this.props.logged.status && (
                     <div className="flex" >
-                        {this.state.displayedCart && (<Cart cart={this.props.cart} display={evt => displayCart(evt)} />)}
+                        {this.props.displayedCart && (<Cart history={this.props.history} cart={this.props.cart} />)}
                         <div className="cart-ico button" onClick={this.displayCart}>
                             <img src="/uploads/logo/cart.png" height="25px" />
                             {this.props.cart.length > 0 && (<div className="cart-number">{this.props.cart.length}</div>)}
@@ -39,7 +36,8 @@ class Navbar extends Component {
 const mapStateToProps = state => {
     return {
         logged: state.logged,
-        cart: state.cart
+        cart: state.cart,
+        displayedCart: state.displayedCart
     }
 }
 

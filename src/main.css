@@ -19,7 +19,7 @@ body {
     /* border-radius:6px; */
     border-radius:1px;
     text-align: center;
-    width: 300px;
+    width: 250px;
     animation: slide-up 0.25s ease-in-out;
     transition: 0.1s ease-in-out;
 }
@@ -29,6 +29,7 @@ body {
     /* box-shadow: 3px 3px 0px 0px rgba(45,52,54,0.46); */
     box-shadow:3px 3px 10px 3px rgba(45,52,54,0.46);
     margin-top: -2px;
+    margin-bottom: 12px;
 }
 
 .card-img {
@@ -71,7 +72,7 @@ body {
     position: relative;
     padding-top: 20px;
     box-shadow: 0 0 20px -5px;
-    width: 75%;
+    width: 100%;
     margin: auto;
     min-height: 92vh;
     background-color: #f3f3f3;
@@ -87,7 +88,7 @@ input {
     font-size: 16px;
     padding: 5px;
     height: 25px;
-    width: 300px;
+    width: 200px;
     box-shadow: 3px 3px 0px -1px rgba(45,52,54,0.46);
     border-radius:1px;
     border: none;
@@ -110,7 +111,7 @@ input:focus::placeholder {
     background: white;
     cursor: pointer;
     font-family: 'Cuprum', sans-serif;
-    width: 300px;
+    width: 200px;
 }
 
 textarea {
@@ -118,7 +119,7 @@ textarea {
     font-size: 16px;
     padding: 5px;
     height: 25px;
-    width: 300px;
+    width: 200px;
     box-shadow: 3px 3px 0px -1px rgba(45,52,54,0.46);
     border-radius:1px;
     border: none;
@@ -231,7 +232,7 @@ textarea:focus::placeholder {
     position: sticky;
     left:0;
     top: 0;
-    width: 75%;
+    width: 100%;
     background-color: #2D3436;
     color: white;
     height: 50px;
@@ -251,7 +252,7 @@ textarea:focus::placeholder {
 
 .shop-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
 }
 
 .flex {
@@ -311,15 +312,15 @@ a:active {
     object-fit: cover;
     width:50px;
     height:50px;
+    opacity: 0.7;
 }
 .miniatures:hover {
-    opacity: 0.7;
+    opacity: 1;
     cursor: pointer;
     box-shadow: 3px 3px 0px -1px rgba(45,52,54,0.46);
     width:60px;
     height:60px;
-    margin:0 2px;
-    border: 3px solid #2D3436;
+    margin:0 5px;
     border-radius: 2px;
 }
 
@@ -341,18 +342,18 @@ p {
 
 #item {
     padding:20px;
-    width: 660px;
+    width: 400px;
     cursor:auto;
     box-shadow: none;
     animation: test 0.1s ease-in-out;
 }
 
 .image-div {
-    min-height:460px;
+    min-height:250px;
 }
 .item-image {
-    max-width: 600px;
-    max-height: 450px;
+    max-width: 300px;
+    max-height: 230px;
 }
 
 @keyframes test{
@@ -380,4 +381,41 @@ p {
     margin-bottom: 5px;
     color: #963436;
     font-style: italic;
+}
+
+@media all and (min-width:890px) {
+    .card {
+        width: 300px;
+    }
+    .navbar {
+        width: 75%;
+    }
+    .content {
+        width: 75%;
+    }
+    .shop-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    }
+    #item {
+        padding:20px;
+        width: 660px;
+    }
+
+    .image-div {
+        min-height:460px;
+    }
+    .item-image {
+        max-width: 600px;
+        max-height: 450px;
+    }
+    input {
+        width: 300px;
+    }
+    textarea {
+        width: 300px;
+    }
+    #file-input {
+        width: 300px;
+    }
 }

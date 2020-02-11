@@ -12,6 +12,9 @@ class Signup extends Component {
         }
     }
     componentDidMount() {
+        if (this.props.logged.status) {
+            this.props.history.push('/profile')
+        }
         console.log('signup mounted')
     }
     nameChangeHandler = event => {
@@ -54,7 +57,7 @@ class Signup extends Component {
         return (
             <div className='center'>
                 <h1>Sign up</h1>
-                <form onSubmit={this.submitHandler}>
+                <form autoComplete="off" onSubmit={this.submitHandler}>
                     <div>
                         <div className='input-container'><input type="text" onChange={this.nameChangeHandler} value={this.state.username} placeholder="Username..." /></div>
                         <div className='input-container'><input type="email" onChange={this.emailChangeHandler} value={this.state.email} placeholder="Email..." /></div>
@@ -69,4 +72,8 @@ class Signup extends Component {
     }
 }
 
-export default connect()(Signup)
+const mapStateToProps = state => {
+    return { logged: state.logged }
+}
+
+export default connect(mapStateToProps)(Signup)

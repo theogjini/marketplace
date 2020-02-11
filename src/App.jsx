@@ -38,13 +38,6 @@ class App extends Component {
         }
         this.setState({ loading: false })
     }
-    renderItem = routerData => {
-        let itemId = routerData.match.params.itemId
-        return <Item
-            history={routerData.history}
-            itemId={itemId}
-        />
-    }
     render = () => {
         return (
             <BrowserRouter>

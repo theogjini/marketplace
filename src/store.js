@@ -50,6 +50,12 @@ const reducer = (state, action) => {
             cart: []
         }
     }
+    if (action.type === "DISPLAY_CART") {
+        return {
+            ...state,
+            displayedCart: action.displayedCart
+        }
+    }
     return state
 }
 
@@ -61,7 +67,8 @@ const store = createStore(
         status: false
     },
     cart: [],
-    userData: {}
+    userData: {},
+    displayedCart: false,
 },
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

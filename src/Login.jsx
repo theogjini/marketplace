@@ -11,6 +11,9 @@ class Login extends Component {
         }
     }
     componentDidMount() {
+        if (this.props.logged.status) {
+            this.props.history.push('/profile')
+        }
         console.log('Login mounted')
     }
     nameChangeHandler = event => {
@@ -62,4 +65,10 @@ class Login extends Component {
     }
 }
 
-export default connect()(Login)
+
+const mapStateToProps = state => {
+    return { logged: state.logged }
+}
+
+
+export default connect(mapStateToProps)(Login)

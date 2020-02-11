@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { StripeProvider, Elements, CardForm } from 'react-stripe-elements'
 
 export default function Checkout(props) {
     const [name, setName] = useState("")
@@ -18,11 +19,12 @@ export default function Checkout(props) {
     useEffect(() => {
         if (!login)
             history.push('/')
+        dispatch({ type: "DISPLAY_CART", displayedCart: false })
     })
 
     async function onSubmitHandler(event) {
         event.preventDefault()
-        const check = [name, address, city, country, creditCard, creditCardExpiry, CCV].includes("")
+        const check = [name, address, city, country, creditCard, creditCardExpiry, CVC].includes("")
         if (check) {
             return alert("Please fill every field!")
         }
@@ -37,7 +39,7 @@ export default function Checkout(props) {
         data.append("country", country)
         data.append("creditCard", creditCard)
         data.append("creditCardExpiry", creditCardExpiry)
-        data.append("CCV", CCV)
+        data.append("CVV", CVC)
         data.append("cart", JSON.stringify(cart))
         let request = await fetch('/buy-item', { method: "POST", body: data })
         let response = await request.json()
@@ -59,7 +61,7 @@ export default function Checkout(props) {
         {cart.length > 0 && <div>< h1 >{"Your total:" + " "}
             {prices.reduce((total, price) => parseInt(total) + parseInt(price)) + " $"}</h1>
             {cart.map(item => {
-                return <img className="mini" src={item.filesPaths[0]}></img>
+                return <img key={item.title} className="mini" src={item.filesPaths[0]}></img>
             })}
         </div>}
         <h1>Checkout here</h1>
@@ -70,6 +72,11 @@ export default function Checkout(props) {
             <div className='input-container'><input type="text" onChange={event => setCity(event.target.value)} value={city} placeholder="City and postal code..." /></div>
             <div className='input-container'><input type="text" onChange={event => setCountry(event.target.value)} value={country} placeholder="Country..." /></div>
             <h4>Credit card informations</h4>
+            {/* <StripeProvider apiKey="pk_test_ZxZCnY5ZdLBspHVH3ogsimDn007AFO1au6">
+                <Elements>
+                    <CardForm credit></CardForm>
+                </Elements>
+            </StripeProvider> */}
             <div className='input-container'><input type="credit card" onChange={event => setCreditCard(event.target.value)} value={creditCard} placeholder="Credit card number..." /></div>
             <div className='input-container'><input type="CVC" onChange={event => setCVC(event.target.value)} value={CVC} placeholder="CVC..." /></div>
             <div className='input-container'><input type="month" onChange={event => setCreditCardExpiry(event.target.value)} value={creditCardExpiry} /></div>

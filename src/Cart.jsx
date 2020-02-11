@@ -12,10 +12,15 @@ class Cart extends Component {
         cartUpdated.splice(idx, 1)
         this.props.dispatch({ type: "DELETE_ITEM", cart: cartUpdated })
     }
+    handleClose = (event) => {
+        event.preventDefault()
+        this.props.dispatch({ type: "DISPLAY_CART", displayedCart: false })
+    }
     render = () => {
         if (!this.props.cart.length) {
             return <div className="cart-div">
                 <h2>Your cart is empty :(</h2>
+                <button className="button" onClick={this.handleClose}>Close</button>
             </div>
         }
         let prices = this.props.cart.map(item => item.price)
@@ -36,13 +41,17 @@ class Cart extends Component {
             </div>
             <h4 style={{ marginBottom: "10px" }}>Your total:
             <div>{prices.reduce((total, price) => parseInt(total) + parseInt(price)) + " $"}</div></h4>
-            <Link to='/checkout' className="button">Checkout</Link>
-        </div>)
+            <Link to="/checkout" className="button">Checkout</Link>
+            <button className="button" onClick={this.handleClose}>Close</button>
+        </div >)
     }
 }
 
 const mapStateToProps = state => {
-    cart: state.cart
+    return {
+        cart: state.cart,
+        displayedCart: state.displayedCart
+    }
 }
 
 export default connect()(Cart)
