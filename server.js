@@ -12,7 +12,7 @@ const uuidv1 = require('uuid/v1')
 app.use(cookieParser())
 
 let dbo = undefined
-let url = "mongodb+srv://theo:theo@cluster0-xnzrm.mongodb.net/test?retryWrites=true&w=majority"
+let url = ""
 MongoClient.connect(url, { newUrlParser: true }, (err, client) => {
     dbo = client.db("marketplace")
 })
