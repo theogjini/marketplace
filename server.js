@@ -1,3 +1,6 @@
+
+const config = require('./config.json')
+
 const express = require('express')
 const app = express()
 const reloadMagic = require('./reload-magic.js')
@@ -11,8 +14,9 @@ const cookieParser = require('cookie-parser')
 const uuidv1 = require('uuid/v1')
 app.use(cookieParser())
 
+
 let dbo = undefined
-let url = ""
+let url = config.url
 MongoClient.connect(url, { newUrlParser: true }, (err, client) => {
     dbo = client.db("marketplace")
 })
